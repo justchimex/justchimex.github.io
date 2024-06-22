@@ -26,12 +26,11 @@ const items = [
     const itemList = document.getElementById('item-list');
   
     searchInput.addEventListener('input', () => {
-      const query = searchInput.value.toLowerCase();
+      const query = searchInput.value;
       itemList.innerHTML = '';
   
       items.forEach(item => {
-        const itemLowerCase = item.toLowerCase();
-        if (itemLowerCase.includes(query)) {
+        if (item.includes(query)) {
           const highlightedItem = highlightText(item, query);
           const li = document.createElement('li');
           li.innerHTML = highlightedItem;
@@ -42,7 +41,7 @@ const items = [
   });
   
   function highlightText(text, query) {
-    const regex = new RegExp(`(${query})`, 'gi');
+    const regex = new RegExp(`(${query})`, 'g');
     return text.replace(regex, '<span class="highlight">$1</span>');
   }
   
