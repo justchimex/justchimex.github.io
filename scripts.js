@@ -25,10 +25,8 @@ const items = [
     const searchInput = document.getElementById('search');
     const itemList = document.getElementById('item-list');
   
-    searchInput.addEventListener('input', () => {
-      const query = searchInput.value;
+    function renderItems(query = '') {
       itemList.innerHTML = '';
-  
       items.forEach(item => {
         if (item.includes(query)) {
           const highlightedItem = highlightText(item, query);
@@ -37,7 +35,14 @@ const items = [
           itemList.appendChild(li);
         }
       });
+    }
+  
+    searchInput.addEventListener('input', () => {
+      renderItems(searchInput.value);
     });
+  
+    // Render all items initially
+    renderItems();
   });
   
   function highlightText(text, query) {
