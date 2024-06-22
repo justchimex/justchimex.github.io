@@ -8,6 +8,7 @@ body {
     align-items: center;
     height: 100vh;
   }
+
   
   .search-container {
     max-width: 600px;
@@ -23,6 +24,10 @@ body {
   
   .search-container h1 {
     margin-bottom: 20px;
+  }
+
+  .input-box{
+    margin-top: 50px;
   }
   
   #search {
