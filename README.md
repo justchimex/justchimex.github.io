@@ -9,9 +9,6 @@ This project is a simple, interactive web application that allows users to searc
 - Highlighting of the matching text in each item.
 - Clean and visually appealing user interface.
 
-## Demo
-
-![Demo Screenshot](demo-screenshot.png)
 
 ## Technologies Used
 
@@ -49,7 +46,7 @@ You need a modern web browser to run this project.
 
 - `index.html`: The main HTML file that sets up the structure of the application.
 - `styles.css`: The CSS file that contains styles to make the application visually appealing.
-- `script.js`: The JavaScript file that contains the logic for real-time searching and highlighting.
+- `scripts.js`: The JavaScript file that contains the logic for real-time searching and highlighting.
 
 ## Usage
 
@@ -65,7 +62,7 @@ You need a modern web browser to run this project.
 
 ### Adding More Items
 
-To add more items to the list, simply modify the `items` array in `script.js`:
+To add more items to the list, simply modify the `items` array in `scripts.js`:
 
 ```javascript
 const items = [
