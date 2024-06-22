@@ -1,42 +1,48 @@
-function debounce(func, delay) {
-    let timeout;
-    return function(...args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), delay);
-    };
-}
-
-function highlightMatches(text, query) {
+const items = [
+    'JavaScript programming',
+    'HTML and CSS basics',
+    'Frontend development',
+    'Web design principles',
+    'Dynamic content handling',
+    'Responsive web design',
+    'JavaScript frameworks',
+    'Server-side programming',
+    'Database management',
+    'Version control with Git',
+    'Web performance optimization',
+    'User experience design',
+    'Mobile-first design',
+    'Cross-browser compatibility',
+    'Progressive web apps',
+    'Single-page applications',
+    'API integration',
+    'Backend development',
+    'Content management systems',
+    'Web security basics'
+  ];
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search');
+    const itemList = document.getElementById('item-list');
+  
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      itemList.innerHTML = '';
+  
+      items.forEach(item => {
+        const itemLowerCase = item.toLowerCase();
+        if (itemLowerCase.includes(query)) {
+          const highlightedItem = highlightText(item, query);
+          const li = document.createElement('li');
+          li.innerHTML = highlightedItem;
+          itemList.appendChild(li);
+        }
+      });
+    });
+  });
+  
+  function highlightText(text, query) {
     const regex = new RegExp(`(${query})`, 'gi');
     return text.replace(regex, '<span class="highlight">$1</span>');
-}
-
-function filterItems() {
-    const query = this.value.toLowerCase();
-    const items = document.querySelectorAll('.item');
-    let hasResults = false;
-
-    items.forEach(item => {
-        const text = item.textContent.toLowerCase();
-        if (text.includes(query)) {
-            item.innerHTML = highlightMatches(item.textContent, query);
-            item.style.display = 'block';
-            hasResults = true;
-        } else {
-            item.style.display = 'none';
-        }
-    });
-
-    const noResults = document.querySelector('.no-results');
-    if (!hasResults && !noResults) {
-        const noResultsItem = document.createElement('li');
-        noResultsItem.className = 'no-results';
-        noResultsItem.textContent = 'No results found';
-        document.querySelector('.items').appendChild(noResultsItem);
-    } else if (hasResults && noResults) {
-        noResults.remove();
-    }
-}
-
-const debouncedFilterItems = debounce(filterItems, 300);
-document.querySelector('.search-input').addEventListener('input', debouncedFilterItems);
+  }
+  
