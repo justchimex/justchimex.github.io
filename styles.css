@@ -1,52 +1,83 @@
+/* Body styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     padding: 20px;
-    background-color: #f4f4f9;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
+/* Search container styles */
 .search-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
     max-width: 500px;
-    margin: 0 auto;
     text-align: center;
+    padding: 20px;
 }
 
+/* Heading styles */
+.search-container h1 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: #007BFF;
+}
+
+/* Input field styles */
 .search-input {
-    padding: 10px;
+    padding: 15px;
     width: 100%;
     box-sizing: border-box;
     border: 2px solid #007BFF;
-    border-radius: 4px;
-    margin-bottom: 20px;
+    border-radius: 50px;
     font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
+.search-input:focus {
+    border-color: #0056b3;
+}
+
+/* Items list styles */
 .items {
     list-style-type: none;
     padding: 0;
-    max-width: 500px;
-    margin: 0 auto;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px 0 0;
     max-height: 400px;
     overflow-y: auto;
+    border-top: 1px solid #ccc;
 }
 
+/* Individual item styles */
 .item {
     padding: 10px;
     border-bottom: 1px solid #ccc;
+    transition: background 0.3s;
+}
+
+.item:hover {
+    background: #f0f8ff;
 }
 
 .item:last-child {
     border-bottom: none;
 }
 
+/* Highlight styles */
 .highlight {
     background-color: yellow;
     font-weight: bold;
 }
 
+/* No results message styles */
 .no-results {
     padding: 10px;
     color: #888;

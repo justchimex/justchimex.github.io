@@ -20,4 +20,4 @@ This project is a simple web application that allows users to perform real-time 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/real-time-search-with-highlighting.git
+   git clone https://github.com/justchimex/justchimex.github.io.git
